@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.samdcc.chaosmedia.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
