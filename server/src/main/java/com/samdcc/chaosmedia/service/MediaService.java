@@ -1,6 +1,6 @@
 package com.samdcc.chaosmedia.service;
 
-import com.samdcc.chaosmedia.dto.MediaHomeViewDTO;
+import com.samdcc.chaosmedia.dto.MediaDTO;
 import com.samdcc.chaosmedia.entity.Media;
 import com.samdcc.chaosmedia.repository.MediaRepository;
 
@@ -18,9 +18,9 @@ public class MediaService {
         this.mediaRepository = mediaRepository;
     }
 
-    public List<MediaHomeViewDTO> getAllMediaHomeViews() {
+    public List<MediaDTO> getAllMediaDTOs() {
         List<Media> medias = mediaRepository.findAll();
-        return medias.stream().map(m -> new MediaHomeViewDTO(m.getName(), m.getImagePath()))
+        return medias.stream().map(m -> new MediaDTO(m.getId(), m.getName(), m.getImagePath()))
                 .collect(Collectors.toList());
     }
 

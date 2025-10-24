@@ -8,6 +8,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.MapKey;
+
+import java.util.Map;
 
 @Entity
 @Table(name = "media")
@@ -23,6 +28,10 @@ public class Media {
 
     private String imagePath;
 
+    @OneToMany(mappedBy = "media", fetch = FetchType.LAZY)
+    @MapKey(name = "id")
+    private Map<Integer, MediaSortParameter> mediaSortParameters;
+
     public Integer getId() {
         return id;
     }
@@ -33,6 +42,10 @@ public class Media {
 
     public String getImagePath() {
         return imagePath;
+    }
+
+    public Map<Integer, MediaSortParameter> getMediaSortParameters() {
+        return mediaSortParameters;
     }
 
 }

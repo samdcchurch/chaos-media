@@ -1,7 +1,7 @@
 package com.samdcc.chaosmedia.controller;
 
 import com.samdcc.chaosmedia.service.MediaService;
-import com.samdcc.chaosmedia.dto.MediaHomeViewDTO;
+import com.samdcc.chaosmedia.dto.MediaDTO;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +24,8 @@ public class HomeController {
      * Returns all types of media for the home page.
      */
     @GetMapping("/home")
-    public List<MediaHomeViewDTO> getHome() {
-        return mediaService.getAllMediaHomeViews();
+    public List<MediaDTO> getHome() {
+        return mediaService.getAllMediaDTOs();
     }
 
 }
