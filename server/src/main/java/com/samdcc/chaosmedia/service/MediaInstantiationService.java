@@ -1,6 +1,6 @@
 package com.samdcc.chaosmedia.service;
 
-import com.samdcc.chaosmedia.entity.MediaPreview;
+import com.samdcc.chaosmedia.entity.MediaInstantiationPreview;
 import com.samdcc.chaosmedia.entity.Media;
 import com.samdcc.chaosmedia.entity.MediaSortParameter;
 import com.samdcc.chaosmedia.entity.MediaSortParameterInstantiation;
@@ -14,24 +14,24 @@ import java.util.Comparator;
 import java.util.List;
 
 @Service
-public class MediaPreviewService {
+public class MediaInstantiationService {
 
     private final MediaRepository mediaRepository;
 
-    public MediaPreviewService(MediaRepository mediaRepository) {
+    public MediaInstantiationService(MediaRepository mediaRepository) {
         this.mediaRepository = mediaRepository;
     }
 
-    public List<MediaPreview> getAllMediaPreviewsSorted(Integer mediaId, Integer mediaSortId) {
+    public List<MediaInstantiationPreview> getAllMediaPreviewsSorted(Integer mediaId, Integer mediaSortId) {
         Media media = mediaRepository.findById(mediaId).orElseThrow(() -> new RuntimeException("Media not found."));
         MediaSortParameter mediaSortParameter = media.getMediaSortParameters().get(mediaSortId);
         if (mediaSortParameter == null) {
-            throw new RuntimeException("MediaSortParameter not found.");
+            throw new RuntimeException("mediaSortParameter not found.");
         }
         SortType sortType = mediaSortParameter.getSortType();
         SortOrder sortOrder = mediaSortParameter.getSortOrder();
         List<MediaSortParameterInstantiation> instantiations = mediaSortParameter.getMediaSortParameterInstantiations();
-        List<MediaPreview> mediaPreviews;
+        List<MediaInstantiationPreview> mediaPreviews;
 
         switch (sortType) {
             case STRING:

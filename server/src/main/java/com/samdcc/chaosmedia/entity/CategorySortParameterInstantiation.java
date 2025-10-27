@@ -1,52 +1,46 @@
 package com.samdcc.chaosmedia.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Table;
-
-import java.util.Map;
-
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapKey;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "category_sort_parameter_instantiations")
 @Access(AccessType.FIELD)
-public class Category {
+public class CategorySortParameterInstantiation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
-    private String name;
+    private String sortValue;
 
     @ManyToOne
-    @JoinColumn(name = "media_id", nullable = false)
-    private Media media;
+    @JoinColumn(name = "category_sort_parameter_id", nullable = false)
+    private CategorySortParameter categorySortParameter;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    @MapKey(name = "id")
-    private Map<Integer, CategorySortParameter> categorySortParameters;
+    @ManyToOne
+    @JoinColumn(name = "category_instantiation_id", nullable = false)
+    private CategoryInstantiation categoryInstantiation;
 
     public Integer getId() {
         return id;
     }
 
-    public String getName() {
-        return name;
+    public String getSortValue() {
+        return sortValue;
     }
 
-    public Map<Integer, CategorySortParameter> getCategorySortParameters() {
-        return categorySortParameters;
+    public CategoryInstantiation getCategoryInstantiation() {
+        return categoryInstantiation;
     }
 
 }

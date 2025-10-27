@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @Entity
 @Table(name = "media_previews")
 @Access(AccessType.FIELD)
-public class MediaPreview {
+public class MediaInstantiationPreview {
 
     @Id
     private Integer id;

@@ -29,7 +29,7 @@ public class MediaSortParameterInstantiation {
 
     @ManyToOne
     @JoinColumn(name = "media_instantiation_id", nullable = false)
-    private MediaPreview mediaPreview;
+    private MediaInstantiationPreview mediaPreview;
 
     public Integer getId() {
         return id;
@@ -39,7 +39,7 @@ public class MediaSortParameterInstantiation {
         return sortValue;
     }
 
-    public MediaPreview getMediaPreview() {
+    public MediaInstantiationPreview getMediaPreview() {
         return mediaPreview;
     }
 

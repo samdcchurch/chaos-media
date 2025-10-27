@@ -32,6 +32,10 @@ public class Media {
     @MapKey(name = "id")
     private Map<Integer, MediaSortParameter> mediaSortParameters;
 
+    @OneToMany(mappedBy = "media", fetch = FetchType.LAZY)
+    @MapKey(name = "id")
+    private Map<Integer, Category> categories;
+
     public Integer getId() {
         return id;
     }
@@ -46,6 +50,10 @@ public class Media {
 
     public Map<Integer, MediaSortParameter> getMediaSortParameters() {
         return mediaSortParameters;
+    }
+
+    public Map<Integer, Category> getCategories() {
+        return categories;
     }
 
 }

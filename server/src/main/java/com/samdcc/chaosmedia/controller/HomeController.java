@@ -1,13 +1,12 @@
 package com.samdcc.chaosmedia.controller;
 
 import com.samdcc.chaosmedia.service.MediaService;
-import com.samdcc.chaosmedia.dto.MediaDTO;
+import com.samdcc.chaosmedia.api.HomeAPI;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -24,8 +23,8 @@ public class HomeController {
      * Returns all types of media for the home page.
      */
     @GetMapping("/home")
-    public List<MediaDTO> getHome() {
-        return mediaService.getAllMediaDTOs();
+    public ResponseEntity<HomeAPI> getHome() {
+        return ResponseEntity.ok(new HomeAPI(mediaService.getAllMediaDTOs()));
     }
 
 }
