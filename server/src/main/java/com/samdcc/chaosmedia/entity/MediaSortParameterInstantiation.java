@@ -2,6 +2,9 @@ package com.samdcc.chaosmedia.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+
+import com.samdcc.chaosmedia.entity.interfaces.SortParameterInstantiation;
+
 import jakarta.persistence.Access;
 import jakarta.persistence.AccessType;
 import jakarta.persistence.Id;
@@ -14,7 +17,8 @@ import jakarta.persistence.Column;
 @Entity
 @Table(name = "media_sort_parameter_instantiations")
 @Access(AccessType.FIELD)
-public class MediaSortParameterInstantiation {
+public class MediaSortParameterInstantiation
+        implements SortParameterInstantiation<MediaSortParameter, MediaInstantiationPreview> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +43,7 @@ public class MediaSortParameterInstantiation {
         return sortValue;
     }
 
-    public MediaInstantiationPreview getMediaPreview() {
+    public MediaInstantiationPreview getInstantiation() {
         return mediaPreview;
     }
 

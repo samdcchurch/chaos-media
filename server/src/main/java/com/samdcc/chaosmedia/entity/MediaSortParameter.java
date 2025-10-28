@@ -1,7 +1,8 @@
 package com.samdcc.chaosmedia.entity;
 
-import com.samdcc.chaosmedia.enums.SortType;
-import com.samdcc.chaosmedia.enums.SortOrder;
+import com.samdcc.chaosmedia.entity.interfaces.SortParameter;
+import com.samdcc.chaosmedia.entity.enums.SortOrder;
+import com.samdcc.chaosmedia.entity.enums.SortType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -22,7 +23,7 @@ import java.util.List;
 @Entity
 @Table(name = "media_sort_parameters")
 @Access(AccessType.FIELD)
-public class MediaSortParameter {
+public class MediaSortParameter implements SortParameter<MediaSortParameterInstantiation> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -62,7 +63,7 @@ public class MediaSortParameter {
         return sortOrder;
     }
 
-    public List<MediaSortParameterInstantiation> getMediaSortParameterInstantiations() {
+    public List<MediaSortParameterInstantiation> getSortParameterInstantiations() {
         return mediaSortParameterInstantiations;
     }
 

@@ -1,4 +1,4 @@
-package com.samdcc.chaosmedia.enums;
+package com.samdcc.chaosmedia.entity.enums;
 
 public enum SortType {
     INT,

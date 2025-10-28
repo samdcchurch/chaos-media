@@ -1,10 +1,10 @@
 package com.samdcc.chaosmedia.entity;
 
-import com.samdcc.chaosmedia.enums.SortType;
-
 import java.util.List;
 
-import com.samdcc.chaosmedia.enums.SortOrder;
+import com.samdcc.chaosmedia.entity.interfaces.SortParameter;
+import com.samdcc.chaosmedia.entity.enums.SortOrder;
+import com.samdcc.chaosmedia.entity.enums.SortType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -23,7 +23,7 @@ import jakarta.persistence.Column;
 @Entity
 @Table(name = "category_sort_parameters")
 @Access(AccessType.FIELD)
-public class CategorySortParameter {
+public class CategorySortParameter implements SortParameter<CategorySortParameterInstantiation> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -63,7 +63,7 @@ public class CategorySortParameter {
         return sortOrder;
     }
 
-    public List<CategorySortParameterInstantiation> getCategorySortParameterInstantiations() {
+    public List<CategorySortParameterInstantiation> getSortParameterInstantiations() {
         return categorySortParameterInstantiations;
     }
 
