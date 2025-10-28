@@ -1,5 +1,7 @@
 package com.samdcc.chaosmedia.api;
 
-public record MediaInstantiationAPI() {
+import com.samdcc.chaosmedia.dto.MediaInstantiationDTO;
+
+public record MediaInstantiationAPI(MediaInstantiationDTO mediaInstantiation) {
 
 }

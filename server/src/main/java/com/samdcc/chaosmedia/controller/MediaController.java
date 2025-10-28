@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/media")
 public class MediaController {
 
     private final MediaService mediaService;
@@ -45,7 +45,7 @@ public class MediaController {
      * for the given media. MIPs are sorted by the sort with id == {mediaSortId}.
      * If ?sort is not specified, the media's default sort is used.
      */
-    @GetMapping("/media/{mediaId}/all")
+    @GetMapping("/{mediaId}/all")
     public ResponseEntity<MediaAPI> getAll(
             @PathVariable Integer mediaId,
             @RequestParam(value = "sort", required = false) Integer mediaSortId) {
@@ -59,8 +59,8 @@ public class MediaController {
     }
 
     /**
-     * GET /api//media/{mediaId}/category/{categoryId}
-     * GET /api//media/{mediaId}/category/{categoryId}?sort={categorySortId}
+     * GET /api/media/{mediaId}/category/{categoryId}
+     * GET /api/media/{mediaId}/category/{categoryId}?sort={categorySortId}
      * 
      * Returns all CategoryInstantiations (CIs) and sort parameters for the given
      * category.
@@ -68,7 +68,7 @@ public class MediaController {
      * CIs are sorted by the sort with id == {categorySortId}.
      * If ?sort is not specified, the category's default sort is used.
      */
-    @GetMapping("/media/{mediaId}/category/{categoryId}")
+    @GetMapping("/{mediaId}/category/{categoryId}")
     public ResponseEntity<CategoryAPI> getCategorySorted(
             @PathVariable("mediaId") Integer mediaId,
             @PathVariable("categoryId") Integer categoryId,
