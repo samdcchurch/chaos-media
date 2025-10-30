@@ -27,7 +27,7 @@ public class MediaInstantiationController {
      * 
      */
     @GetMapping("/{mediaInstantiationId}")
-    public ResponseEntity<MediaInstantiationAPI> getAll(
+    public ResponseEntity<MediaInstantiationAPI> getMediaInstantiation(
             @PathVariable Integer mediaInstantiationId) {
         MediaInstantiationDTO MI = mediaInstantiationService.getMediaInstantiationDTO(mediaInstantiationId);
         return ResponseEntity.ok(new MediaInstantiationAPI(MI));

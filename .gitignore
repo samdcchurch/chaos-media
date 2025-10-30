@@ -1,4 +1,6 @@
 /.vscode/
 
+/scripts/
+
 /server/.env
 /server/target/

@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Table;
 
+import java.util.List;
 import java.util.Map;
 
 import jakarta.persistence.Access;
@@ -11,6 +12,7 @@ import jakarta.persistence.AccessType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapKey;
 import jakarta.persistence.OneToMany;
@@ -43,6 +45,10 @@ public class Category {
     @MapKey(name = "id")
     private Map<Integer, CategorySortParameter> categorySortParameters;
 
+    @ManyToMany
+    @JoinTable(name = "category_to_category", joinColumns = @JoinColumn(name = "parent_category_id"), inverseJoinColumns = @JoinColumn(name = "child_category_id"))
+    private List<Category> subcategories;
+
     public Integer getId() {
         return id;
     }
@@ -57,6 +63,10 @@ public class Category {
 
     public Map<Integer, CategorySortParameter> getCategorySortParameters() {
         return categorySortParameters;
+    }
+
+    public List<Category> getSubcategories() {
+        return subcategories;
     }
 
 }
