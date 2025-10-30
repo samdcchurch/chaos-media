@@ -8,4 +8,4 @@ Planned Features:
 - Addition of tools to simply adding new media
 
 
-This project was designed for use by a single person or family. The person hosts their own server and can access their media from that server on their local network. Therefore, Chaos Media prioritizes the simplicity of adding additional media categories and search parameters over massive scalability.
+This project was designed for use by a single person or family. The person hosts their own server and can access their media from that server on their local network. Therefore, Chaos Media prioritizes the simplicity of adding additional media categories and search parameters over scalability of massive proportions.
